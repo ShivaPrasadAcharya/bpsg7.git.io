@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Land Management in Nepal: Past, Present and Future.</title>
+  <style>
+    body {
+      font-family:Calibri;
+        }
+    /* Style for the toggle buttons */
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    /* Style for the active (toggled) buttons */
+    button.active {
+      background-color: #28a745;
+    }
+    textarea {
+      width: 80%;
+      max-width: 100%;
+      /* Ensure it doesn't exceed the viewport width */
+      box-sizing: border-box;
+      /* Include padding and border in the width calculation */
+    }
+    #input1 {
+      width: 20%;
+      box-sizing: border-box;
+      /* Include padding and border in the width calculation */
+    }
+    /* Add CSS for green and red backgrounds based on the match */
+    .match {
+      background-color: #28a745;
+      /* Green */
+    }
+    .no-match {
+      background-color: #dc3545;
+      /* Red */
+    }
+    /* New style for the output */
+    /* New style for the output */
+    .jkl-details {
+      display: none;
+      /*this stop the detail content from displaying atutomatically.remove it if needed*/
+     
+      font-style: italic;
+
+      /* Add other styles asneeded */
+    }
+    .details-content {
+      font-size: large;
+      font-style: italic;
+      /* Add other styles asneeded */
+    }
+    #abbr {
+      display: none;
+    }
+
+    .highlight {
+            color: red;
+        }
+
+        .tab1{
+          padding-left: 20px;
+        font-size:medium;
+       
+        }
+        .tab2{
+          padding-left: 40px;
+     
+        }
+  </style>
+   <style>
+    @keyframes blink {
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    .blinking-hand {
+        font-size: 24px;
+        animation: blink 1.5s infinite;
+        cursor: pointer;
+        display: block; /* Display the hand below the text */
+    }
+    #svg{
+      display:none;
+    }
+
+    #svg-container{
+      text-align: center;
+    }
+    #center{
+
+      text-align: center;
+    }
+
+    table{
+      font-size: xx-small;
+    }
+</style>
+</head>
+<body>
+  <h2>  Land Management in Nepal: Past, Present and Future</h2>
+  <!--[
+  <label for="input0">Parking1:</label>
+  <textarea id="input0" placeholder="Enter text for Input 0:heading"></textarea><br>
+  <label for="input00">Parking2:</label>
+  <textarea id="input00" placeholder="Enter text for Input 00:heading"></textarea><br>
+  <button id="saveStateButton" onclick="savePageState()">Save State</button>
+  <button id="loadStateButton" onclick="loadPageState()">Load State</button><br><br>
+  <label for="input1">Input 1:</label>
+  <textarea id="input1" oninput="autoPopulateInputs()" placeholder="Enter text for Input 1:ID"></textarea>
+  <select id="pick">
+    <option value=""></option>
+    <option value="">111</option>
+    <option value="">112</option>
+    <option value="">902</option>
+  </select><br>
+  <label for="input2">Input 2:</label>
+  <textarea id="input2" placeholder="Enter text for Input 2:heading"></textarea><br>
+  <label for="input3">Input 3:</label>
+  <textarea id="input3" placeholder="Enter text for Input 3:content"></textarea><br>
+  <label for="input4">Input 4:</label>
+  <textarea id="input4" placeholder="Enter text for Input 4:fn1"></textarea><br>
+  <label for="input5">Input 5:</label>
+  <textarea id="input5" placeholder="Enter text for Input 5:fn2"></textarea><br>
+  <label for="input6">Input 6:</label>
+  <textarea id="input6" placeholder="Enter text for Input 6:fn3"></textarea><br>
+  <label for="input7">Input 7:</label>
+  <textarea id="input7" placeholder="Enter text for Input 7:fn4"></textarea><br>
+  <label for="input8">Input 8:</label>
+  <textarea id="input8" placeholder="Enter text for Input 8:fn5"></textarea><br>
+  <label for="input9">Input 9:</label>
+  <textarea id="input9" placeholder="Enter text for Input 9:fn6"></textarea><br>
+  <label for="input10">Input 10:</label>
+  <textarea id="input10" placeholder="Enter text for Input 10:fn7"></textarea><br>
+  <label for="input11">Input 11:</label>
+  <textarea id="input11" placeholder="Enter text for Input 11:fn8"></textarea><br>
+  <label for="input12">Input 12:</label>
+  <textarea id="input12" placeholder="Enter text for Input 12:fn9"></textarea><br>
+  <label for="input13">Input 13:</label>
+  <textarea id="input13" placeholder="Enter text for Input 13:fn10"></textarea><br>
+  <label for="input14">Input 14:</label>
+  <textarea id="input14" placeholder="Enter text for Input 14:fn11"></textarea><br>
+  <label for="input15">Input 15:</label>
+  <textarea id="input15" placeholder="Enter text for Input 15:fn12"></textarea><br>
+  <label for="input16">Input 16:</label>
+  <textarea id="input16" placeholder="Enter text for Input 16:title"></textarea><br>
+  <label for="input17">Input 17:</label>
+  <textarea id="input17" placeholder="Enter text for Input 17:link"></textarea><br>
+  <label for="input18">Input 18:</label>
+  <textarea id="input18" placeholder="Enter text for Input 18:accessed on:"></textarea><br>
+  <label for="input19">Input 19:</label>
+  <textarea id="input19" placeholder="Enter text for Input 19:Keywords"></textarea><br>
+  <button id="showButton" onclick="toggleABC()">Show ABC</button>
+  <p id="output" style="display: none;"></p>
+   <button id="showLMNButton" onclick="toggleLMN()">Show LMN</button>
+    <div id="lmnContent" style="display: none;">
+    <p id="lmnOutput"></p>
+    <div id="lmnDetails" style="display: none;">
+    </div>
+  </div> </div>]-->
+
+  <button id="showAllJKLButton" onclick="toggleAllJKL()">Click Here for Informative Knowledge</button>
+  <div id="jklContainer"></div>
+
+   <script>
+    var valuesArray = [
+{input1: "1", input2: "Syllables of PSM-II, BPSG (7th Sem)", input3: "", input4: " <p>Credit 3 </p> <p>Contact Hours: 48</p> <p><b>COURSE DESCRIPTION AND SCOPE</b></p> <p>This course is developed to produce undergraduate students having the knowledge and capability of exploring and thing critically on essential aspects of public services management. The course will enrich the students orient towards fostering and sustaining high quality results oriented and performing public service through systematic learning and hand-on experiences. The course overs the issues of innovations in public service management, public private sector partnership nd people's participation in design and delivery of public service delivery. Additionally the course encompasses theory, organization structure, procedure and professional practices of several public services of Nepal such as Land Management, Development Process Management. Election Management and Recruitment & Selection Process</p> <p><b>COURSE OBJECTIVES</b></p> <p>This course aims to make students familiar with conceptual and practical knowledge of public affairs management. Specifically, following are focused objectives of the course: </p> <p>&#x2022; Impart essential knowledge and evidence of innovations in public service delivery around the globe. </p>  <p>&#x2022; Enrich students' knowledge to understand theoretical knowledge of public service management and current status of public service delivery in Nepal.</p> <p>&#x2022; Enable students learn, understand and investigate on co-design, co-production and co- governance of public services.</p> <p>&#x2022; Make students understand and feel the standard office setting of Nepalese public service delivery organization</p> <p>&#x2022; Enrich students' knowledge to analyze institutional arrangements, structures and procedures of Land Management, Development Process Management, Election Management, Management of Recruitment and Selection Process </p> <p><b>COURSE DETAILS</b></p> <p><b>UNIT I: Management of Public Affairs [CH 20]</b></p> <p>Theory, organization structure, procedure and professional practices of the following public services in Nepal: Land Management; Development Process Management; Election Management, Management of Recruitment and Selection Process</p> <p><b>UNIT II: Innovations in Public Services Management [CH 10]</b></p> <p>Designing, Piloting and Implementing Public Service Solutions; Examples of Innovative solutions by governments in the world (e.g. e-identity, e-Residency. Smart-ID, X-Road, e-Land Register, Population Registry, KSI Blockchain, e-Justice, e-Police, i-Voting, Government Cloud, Intelligent Transportation Systems and Data Embassy of Estonia: Artificial Intelligence and Regulatory Sandbox of Singapore: Dubai 10x Innovations, Global Development Lab of the USA; Seoul 50+ policy of South Korea, E-waste Recycling of China: Patient Innovation Platform of Portugal etc.); Governance challenges for innovative service delivery.</p> <p><b>UNIT III: Public and Private Sector Partnerships [CH 5]</b></p> <p>Basic theories; Types and Models; Outsourcing, Competition, Deregulation. Contracting etc. Insourcing: Advantages, disadvantages, obstacles and implications for service delivery; Role of public service officials.</p> <p><b>UNIT IV: Co-production and Co-Governance of public services.[CH 13]</b></p> <p>Concept: Emergence: Co-production, Co-creation and Co-Governance: International Practices, Nepal's practices and prospects; Criticisms; Challenges.</p> <p><b>REFERENCES</b></p> <p>Anttiroiko, A.-V., Bailey, S.J., Valkama, P. (2011). <i> Innovations in Public Governance- Volume 15 Innovation and the Public Sector, </i> IOS Press.</p> <p>Brandsen, Tec, Steen, Tui& Verschere, Bram (eds), (2018). <i>Co-production and co-creation: engaging citizens in public services. </i> New York, Routledge.</p> <p>Durose, Catherine & Richardson, Liz (2015), <i>Designing Public Policy for Co-production.</i> Chicago, University of Chicago Press.</p> <p>Jing, Yijia & Osborne, Stephen P. (eds) (2017). <i>Public Service Innovations in China, Singapore, Palgrave.</i> </p> <p>Link, Albert N. (2006). <i> Public Private Partnerships: Innovation Strategies and Policy Alternatives.</i> Springer.</p> <p>Laws, rules, regulations, procedures and reports of the GON authorities relating to Land Management, Development Management, Election Management and Public Service Recruitment.</p> </div>", input5: "", input6: "", input7: "", input8: "", input9: "", input10: "", input11: "", input12: "", input13: "", input14: "", input15: "", input16: "", input17: "", input18: "", input19: ""},
+
+      {input1: "2", input2: "Article writing guidelines on Land Management", input3: "", input4: "Students are requested to make sophisticated investigation and research on the topic before writing the article. They ought to consult the parents, seniors, experts, government officials, etc.to collect information  on the assigned topic. Also they ought to explore the articles, news, laws, rules and executive orders regarding the topic. Weak and Feeble article will be rejected.<br><br><u>General Structure of writing article on Land Management Topic:</u><br>i.Definition<br>ii.origin/etymology:<br>iiI. types:<br>iv. Commencement date of the laws/rules/policy:<br> v.Region covered: <br>vi. No. of amendments: <br>vii.Last amendment date: <br>viii.Rationality for bringing such laws/rules/policy: <br>ix.Special Provisions in bullets (short): <br>x.Criticism <br>xi. Assimilation <br>xii. Source of Information: <br>", input5: "<a href='' target='_blank'></a><br><a href='https://lawcommission.gov.np/np/?cat=87' target='_blank'>नेपालको संविधान</a><br><a href='https://lawcommission.gov.np/np/?cat=713' target='_blank'>मुलुकी देवानी संहिता, २०७४</a><br>", input6: "<a href='बिर्ता उन्मूलन ऐन, २०१६' target='_blank'>बिर्ता उन्मूलन ऐन, २०१६</a><br><a href='https://lawcommission.gov.np/np/?cat=738' target='_blank'>विर्ता उन्मूलन नियमावली, २०१७</a><br><a href='https://lawcommission.gov.np/np/wp-content/uploads/2021/01/%E0%A4%B5%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%A4%E0%A4%BE%E0%A4%B5%E0%A4%BE%E0%A4%B2%E0%A4%BE%E0%A4%B2%E0%A5%87-%E0%A4%B5%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%A4%E0%A4%BE%E0%A4%AE%E0%A4%BE-%E0%A4%B0%E0%A4%95%E0%A4%AE-%E0%A4%B2%E0%A4%97%E0%A4%BE%E0%A4%88-%E0%A4%B2%E0%A4%BF%E0%A4%A8-%E0%A4%96%E0%A4%BE%E0%A4%A8-%E0%A4%A8%E0%A4%AA%E0%A4%BE%E0%A4%89%E0%A4%A8%E0%A5%87.pdf' target='_blank'>बिर्तावालले बिर्तामा रकम (भट्टी चर्सा आदि) लगाई लिन खान नपाउने ऐन, २०१५</a><br><a href='https://lawcommission.gov.np/np/?cat=396' target='_blank'>उखडा सम्बन्धी ऐन, २०२१</a><br><a href='https://lawcommission.gov.np/np/?cat=724' target='_blank'>उखडा सम्बन्धी नियमहरू, २०२१</a><br>", input7: "<a href='https://lawcommission.gov.np/np/?cat=814' target='_blank'>गुठी संस्थान ऐन, २०३३</a><br>", input8: "<a href='https://lawcommission.gov.np/np/?cat=467' target='_blank'>झोरा क्षेत्रको जग्गा सम्बन्धी ऐन, २०२८</a><br>", input9: "<a href='https://lawcommission.gov.np/np/?p=10970' target='_blank'>सार्वजनिक सडक ऐन, २०३१</a><br>", input10: "<a href='https://lawcommission.gov.np/np/?cat=418' target='_blank'>भूमि सम्बन्धी ऐन, २०२१</a><br><a href='https://lawcommission.gov.np/np/wp-content/uploads/2021/10/%E0%A4%AD%E0%A5%82%E0%A4%AE%E0%A4%BF-%E0%A4%B8%E0%A4%AE%E0%A5%8D%E0%A4%AC%E0%A4%A8%E0%A5%8D%E0%A4%A7%E0%A5%80-%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%E0%A4%B9%E0%A4%B0%E0%A5%82-%E0%A5%A8%E0%A5%A6%E0%A5%A8%E0%A5%A7.pdf' target='_blank'>भूमि सम्बन्धी नियमहरू, २०२१</a><br>", input11: "<a href='https://lawcommission.gov.np/np/?cat=436' target='_blank'>मालपोत ऐन, २०३४</a><br><a href='https://lawcommission.gov.np/np/?cat=944' target='_blank'>मालपोत नियमावली, २०३६</a><br>", input12: "<a href='https://lawcommission.gov.np/np/?cat=404' target='_blank'>जग्गा (नाप जाँच) ऐन, २०१९</a><br><a href='https://lawcommission.gov.np/np/?cat=923' target='_blank'>जग्गा (नाप जाँच) नियमावली, २०५८</a><br>", input13: "<a href='https://lawcommission.gov.np/np/wp-content/uploads/2021/01/%E0%A4%AD%E0%A5%82%E0%A4%89%E0%A4%AA%E0%A4%AF%E0%A5%8B%E0%A4%97-%E0%A4%B8%E0%A4%AE%E0%A5%8D%E0%A4%AC%E0%A4%A8%E0%A5%8D%E0%A4%A7%E0%A4%BF-%E0%A4%90%E0%A4%A8-%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AC.pdf' target='_blank'> भूउपयोग सम्बन्धि ऐन, २०७६</a><br><a href='https://lawcommission.gov.np/np/wp-content/uploads/2022/06/%E0%A4%AD%E0%A5%82%E0%A4%89%E0%A4%AA%E0%A4%AF%E0%A5%8B%E0%A4%97-%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80-%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AF.pdf' target='_blank'>भूउपयोग नियमावली, २०७९</a><br>", input14: "<a href='http://rajpatra.dop.gov.np/welcome/book?ref=24727' target='_blank'>राष्ट्रिय भूमि आयोग गठन आदेश, २०७८</a><br><a href='https://nlc.gov.np/%e0%a4%ad%e0%a5%82%e0%a4%ae%e0%a4%bf%e0%a4%b9%e0%a5%80%e0%a4%a8-%e0%a4%a6%e0%a4%b2%e0%a4%bf%e0%a4%a4-%e0%a4%b8%e0%a5%81%e0%a4%95%e0%a5%81%e0%a4%ae%e0%a5%8d%e0%a4%ac%e0%a4%be%e0%a4%b8%e0%a5%80/' target='_blank'>भूमिहीन दलित सुकुम्बासी पहिचान र प्रमाणीकरण मापदण्ड</a><br>", input15: "<a href='https://lawcommission.gov.np/np/wp-content/uploads/2021/04/%E0%A4%96%E0%A4%B0%E0%A5%8D%E0%A4%95-%E0%A4%9C%E0%A4%97%E0%A5%8D%E0%A4%97%E0%A4%BE-%E0%A4%B0%E0%A4%BE%E0%A4%B7%E0%A5%8D%E0%A4%9F%E0%A5%8D%E0%A4%B0%E0%A4%BF%E0%A4%AF%E0%A4%95%E0%A4%B0%E0%A4%A3-%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%E0%A4%B9%E0%A4%B0%E0%A5%82-%E0%A5%A8%E0%A5%A6%E0%A5%A9%E0%A5%A9.pdf' target='_blank'>खर्क जग्गा राष्ट्रियकरण नियमहरू, २०३३</a><br><a href='https://lawcommission.gov.np/np/?cat=402' target='_blank'>खर्क जग्गा राष्ट्रियकरण ऐन, २०३१</a><br><a href='https://lawcommission.gov.np/np/?cat=397' target='_blank'>निजी वन जङ्गल राष्ट्रियकरण ऐन, २०१३</a><br><a href='https://lawcommission.gov.np/np/wp-content/uploads/2021/01/%E0%A4%9C%E0%A4%97%E0%A5%8D%E0%A4%97%E0%A4%BE-%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%AA%E0%A5%8D%E0%A4%A4%E0%A4%BF-%E0%A4%90%E0%A4%A8-%E0%A5%A8%E0%A5%A6%E0%A5%A9%E0%A5%AA.pdf' target='_blank'>जग्गा प्राप्ति ऐन, २०३४</a><br><a href='https://lawcommission.gov.np/np/?cat=667' target='_blank'>जग्गा प्राप्ती नियमहरु, २०२६</a><br> <a href='https://www.nepalhomes.com/news/2023/06/08/64817e788f4aca2845d776cf' target='_blank'>Article on types of land.</a> <br>", input16: "", input17: "", input18: "", input19: ""},
+
+{input1: "3", input2: "Contact List of Students", input3: "", input4: "<table> <tr> <th>Name</th> <th>Address (Permanent)</th> <th>Address (Temporary)</th> <th>Email</th> <th>Phone No.</th> <th>Topic Chosen for Presentation (First Phase)</th> <th>Topic Assigned for Presentation (Second Phase)</th> </tr> <tr> <td>Anjali Singh</td> <td>Dhanusha District</td> <td>Kathmandu</td> <td>anzali725@gmail.com</td> <td>9809663079</td> <td>Co-governance</td> <td>Estonia</td> </tr> <tr> <td>Archana Baral</td> <td>Kamalamai Municipality Ward no.12, Sindhuli</td> <td>Buddhanilkantha</td> <td>baralarchana2001@gmail.com</td> <td>9807653331</td> <td>PPP (Types and Models)</td> <td>Dubai's Innovation</td> </tr> <tr> <td>Jennifer Chhetri Bajracharya</td> <td>Asan</td> <td>Teku</td> <td>jenniferchettri05@gmail.com</td> <td>9861834313</td> <td>International Practices (Unit - IV)</td> <td>Innovation in India</td> </tr> <tr> <td>Ambika Shah</td> <td>Chakraghatta R M 3, Sarlahi</td> <td>Changathali Mahalaxmi 7, Lalitpur</td> <td>shahambika188@gmail.com</td> <td>9808221301</td> <td>Development Process Management</td> <td>E Waste Recycling of China</td> </tr> <tr> <td>Samriddhi K.C.</td> <td>Tikathali, Lalitpur</td> <td>Tikathali, Lalitpur</td> <td>kcsammy70@gmail.com</td> <td>9861446326</td> <td>Election Management</td> <td>X-Road</td> </tr> <tr> <td>Yashoda Karki</td> <td>Dolakha</td> <td>Budhanilkantha</td> <td>yashodakarki4848@gmail.com</td> <td>9869174262</td> <td>Insourcing</td> <td>Global Development Lab of the USA</td> </tr> <tr> <td>Sapna Singh</td> <td>Janakpur</td> <td>Sifal</td> <td>singhsana177@gmail.com</td> <td>9841231817</td> <td>Land Management</td> <td>Artificial Intelligence</td> </tr> <tr> <td>Shaila Chaudhary</td> <td>Lamahi, Dang</td> <td>Matatirtha</td> <td>shailakbs@gmail.com</td> <td>9861695663</td> <td>Management of Recruitment and Selection Process</td> <td>Innovation in Japan</td> </tr> <tr> <td>Alaska Poudyal</td> <td>Kapan</td> <td>Kapan</td> <td>alaska.poudyalxx@gmail.com</td> <td>9810154002</td> <td>Nepal's Practices and Prospects in Co-production</td> <td>Seoul 50+ Policy of South Korea</td> </tr> <tr> <td>Narayani Pandey</td> <td>Nuwakot</td> <td>Balaju Height</td> <td>prakritipandey2016@gmail.com</td> <td>9861445593</td> <td>Basic Theories of PPP</td> <td>Singapore</td> </tr> <tr> <td>Rubi Kumari Mahato</td> <td>Siraha</td> <td>Balkhu</td> <td>rubimahato75@gmail.com</td> <td>9816748851</td> <td>Role of Public Service Officials</td> <td>KSI Blockchain</td> </tr> <tr> <td>Prikshya Chaudhary</td> <td>Dang</td> <td>Matatirtha</td> <td>prikshyaw7@gmail.com</td> <td>9806254755</td> <td>Advantages, Disadvantages, Obstacles in PPP</td> <td>Innovation in Portugal</td> </tr> </table>", input5: "", input6: "", input7: "", input8: "", input9: "", input10: "", input11: "", input12: "", input13: "", input14: "", input15: "", input16: "", input17: "", input18: "", input19: ""},
+
+
+
+
+    ];
+    var mainTextVisible = false;
+    var lmnContentVisible = false;
+    var lmnDetailsVisible = false;
+    //autopopulating the input fields
+    function autoPopulateInputs() {
+      var input1Value = document.getElementById("input1").value;
+      var matchingValue = valuesArray.find(function (item) {
+        return item.input1 === input1Value;
+      });
+      var input1Field = document.getElementById("input1");
+      if (matchingValue) {
+        input1Field.value = matchingValue.input1;
+        input1Field.classList.remove("no-match");
+        input1Field.classList.add("match");
+        // Rest of your code to populate other fields...
+      } else {
+        input1Field.value = input1Value;
+        input1Field.classList.remove("match");
+        input1Field.classList.add("no-match");
+      }
+      if (matchingValue) {
+        document.getElementById("input2").value = matchingValue.input2.replace(/</g, "<").replace(/>/g, ">");
+        document.getElementById("input3").value = matchingValue.input3.replace(/</g, "<").replace(/>/g, ">");
+        document.getElementById("input4").value = matchingValue.input4.replace(/</g, "<").replace(/>/g, ">");
+        document.getElementById("input5").value = matchingValue.input5.replace(/</g, "<").replace(/>/g, ">");
+        document.getElementById("input6").value = matchingValue.input6.replace(/</g, "<").replace(/>/g, ">");
+        document.getElementById("input7").value = matchingValue.input7.replace(/</g, "<").replace(/>/g, ">");
+        document.getElementById("input8").value = matchingValue.input8.replace(/</g, "<").replace(/>/g, ">");
+        document.getElementById("input9").value = matchingValue.input9.replace(/</g, "<").replace(/>/g, ">");
+        document.getElementById("input10").value = matchingValue.input10.replace(/</g, "<").replace(/>/g, ">");
+        document.getElementById("input11").value = matchingValue.input11.replace(/</g, "<").replace(/>/g, ">");
+        document.getElementById("input12").value = matchingValue.input12.replace(/</g, "<").replace(/>/g, ">");
+        document.getElementById("input13").value = matchingValue.input13.replace(/</g, "<").replace(/>/g, ">");
+        document.getElementById("input14").value = matchingValue.input14.replace(/</g, "<").replace(/>/g, ">");
+        document.getElementById("input15").value = matchingValue.input15.replace(/</g, "<").replace(/>/g, ">");
+        document.getElementById("input16").value = matchingValue.input16.replace(/</g, "<").replace(/>/g, ">");
+        document.getElementById("input17").value = matchingValue.input17.replace(/</g, "<").replace(/>/g, ">");
+        document.getElementById("input18").value = matchingValue.input18.replace(/</g, "<").replace(/>/g, ">");
+        document.getElementById("input19").value = matchingValue.input19
+      } else {
+        document.getElementById("input2").value = "";
+        document.getElementById("input3").value = "";
+        document.getElementById("input4").value = "";
+        document.getElementById("input5").value = "";
+        document.getElementById("input6").value = "";
+        document.getElementById("input7").value = "";
+        document.getElementById("input8").value = "";
+        document.getElementById("input9").value = "";
+        document.getElementById("input10").value = "";
+        document.getElementById("input11").value = "";
+        document.getElementById("input12").value = "";
+        document.getElementById("input13").value = "";
+        document.getElementById("input14").value = "";
+        document.getElementById("input15").value = "";
+        document.getElementById("input16").value = "";
+        document.getElementById("input17").value = "";
+        document.getElementById("input18").value = "";
+        document.getElementById("input19").value = "";
+      }
+    }
+    var showAllJKLButton = document.getElementById("showAllJKLButton");
+    var jklContainer = document.getElementById("jklContainer");
+    // Toggle the visibility of all JKL content
+    function toggleAllJKL() {
+      if (jklContainer.innerHTML === '') {
+        // Generate JKL content if it's empty
+        for (var i = 0; i < valuesArray.length; i++) {
+          var input1Value = valuesArray[i].input1;
+          var input2Value = valuesArray[i].input2.replace(/</g, "<").replace(/>/g, ">");
+          var input3Value = valuesArray[i].input3.replace(/</g, "<").replace(/>/g, ">");
+          var input4Value = valuesArray[i].input4.replace(/</g, "<").replace(/>/g, ">");
+          var input5Value = valuesArray[i].input5.replace(/</g, "<").replace(/>/g, ">");
+          var input6Value = valuesArray[i].input6.replace(/</g, "<").replace(/>/g, ">");
+          var input7Value = valuesArray[i].input7.replace(/</g, "<").replace(/>/g, ">");
+          var input8Value = valuesArray[i].input8.replace(/</g, "<").replace(/>/g, ">");
+          var input9Value = valuesArray[i].input9.replace(/</g, "<").replace(/>/g, ">");
+          var input10Value = valuesArray[i].input10.replace(/</g, "<").replace(/>/g, ">");
+          var input11Value = valuesArray[i].input11.replace(/</g, "<").replace(/>/g, ">");
+          var input12Value = valuesArray[i].input12.replace(/</g, "<").replace(/>/g, ">");
+          var input13Value = valuesArray[i].input13.replace(/</g, "<").replace(/>/g, ">");
+          var input14Value = valuesArray[i].input14.replace(/</g, "<").replace(/>/g, ">");
+          var input15Value = valuesArray[i].input15.replace(/</g, "<").replace(/>/g, ">");
+          var input16Value = valuesArray[i].input16.replace(/</g, "<").replace(/>/g, ">");
+          var input17Value = valuesArray[i].input17.replace(/</g, "<").replace(/>/g, ">");
+          var input18Value = valuesArray[i].input18.replace(/</g, "<").replace(/>/g, ">");
+          var input19Value = valuesArray[i].input19;
+          var jklContentText = '<b><u>' + input1Value + ': ' + input2Value + '</b></u>' + input3Value + '<br> + ';
+          jklContentText += '<a href="javascript:void(0)" onclick="toggleJKLDetails(event, ' + i + ')">[' + (i + 1) + ']</a>';
+          jklContentText += '<div id="jklDetails_' + i + '" class="jkl-details">'  + input4Value + input5Value + input6Value + input7Value+ input8Value+ input9Value+ input10Value+ input11Value+ input12Value+ input13Value+ input14Value+input15Value  + input16Value+'<a href="' + input17Value + '">' + input17Value + '</a>' + input18Value + '</div>';
+          var jklContent = document.createElement("div");
+          jklContent.innerHTML = jklContentText;
+          jklContainer.appendChild(jklContent);
+        }
+        showAllJKLButton.textContent = "Hide"; // Update button text
+        showAllJKLButton.classList.add("active"); // Add "active" class
+      } else {
+        // Clear JKL content if it's not empty
+        jklContainer.innerHTML = '';
+        showAllJKLButton.textContent = "Show"; // Update button text
+        showAllJKLButton.classList.remove("active"); // Remove "active" class
+      }
+    }
+    // Toggle the visibility of JKL details
+    function toggleJKLDetails(index) {
+      var detailsDiv = document.getElementById('jklDetails_' + index);
+      if (detailsDiv.style.display === 'none') {
+        detailsDiv.style.display = 'block';
+      } else {
+        detailsDiv.style.display = 'none';
+      }
+    }
+    // Toggle the visibility of LMN content
+    function toggleLMN() {
+      var lmnContent = document.getElementById("lmnContent");
+      var showLMNButton = document.getElementById("showLMNButton");
+      lmnContentVisible = !lmnContentVisible;
+      if (lmnContentVisible) {
+        var input1Value = document.getElementById("input1").value;
+        var input2Value = document.getElementById("input2").value.replace(/</g, "<").replace(/>/g, ">");
+        var input3Value = document.getElementById("input3").value.replace(/</g, "<").replace(/>/g, ">");
+        var input4Value = document.getElementById("input4").value.replace(/</g, "<").replace(/>/g, ">");
+        var input5Value = document.getElementById("input5").value.replace(/</g, "<").replace(/>/g, ">");
+        var input6Value = document.getElementById("input6").value.replace(/</g, "<").replace(/>/g, ">");
+        var input7Value = document.getElementById("input7").value.replace(/</g, "<").replace(/>/g, ">");
+        var input8Value = document.getElementById("input8").value.replace(/</g, "<").replace(/>/g, ">");
+        var input9Value = document.getElementById("input9").value.replace(/</g, "<").replace(/>/g, ">");
+        var input10Value = document.getElementById("input10").value.replace(/</g, "<").replace(/>/g, ">");
+        var input11Value = document.getElementById("input11").value.replace(/</g, "<").replace(/>/g, ">");
+        var input12Value = document.getElementById("input12").value.replace(/</g, "<").replace(/>/g, ">");
+        var input13Value = document.getElementById("input13").value.replace(/</g, "<").replace(/>/g, ">");
+        var input14Value = document.getElementById("input14").value.replace(/</g, "<").replace(/>/g, ">");
+        var input15Value = document.getElementById("input15").value.replace(/</g, "<").replace(/>/g, ">");
+        var input16Value = document.getElementById("input16").value.replace(/</g, "<").replace(/>/g, ">");
+        var input17Value = document.getElementById("input17").value.replace(/</g, "<").replace(/>/g, ">");
+        var input18Value = document.getElementById("input18").value.replace(/</g, "<").replace(/>/g, ">");
+        var input19Value = document.getElementById("input19").value;
+        var lmnContentText = '<b><u>' + input1Value + ':'  + input2Value + '</b></u>' + input3Value + '<br> + ';
+        lmnContentText += '<a href="javascript:void(0)" onclick="toggleDetails()">[Details]</a>';
+        document.getElementById("lmnOutput").innerHTML = lmnContentText;
+        lmnContent.style.display = "block";
+        showLMNButton.textContent = "Hide LMN";
+        showLMNButton.classList.add("active"); // Add "active" class
+      } else {
+        lmnContent.style.display = "none";
+        showLMNButton.textContent = "Show LMN";
+        hideDetails();
+        showLMNButton.classList.remove("active"); // Remove "active" class
+        hideDetails(); // Also call hideDetails when hiding LMN
+      }
+    }
+    // Toggle the visibility of LMN details
+    function toggleDetails() {
+      var lmnDetails = document.getElementById("lmnDetails");
+      lmnDetailsVisible = !lmnDetailsVisible;
+      if (lmnDetailsVisible) {
+        var input1Value = document.getElementById("input1").value;
+        var input2Value = document.getElementById("input2").value.replace(/</g, "<").replace(/>/g, ">");
+        var input3Value = document.getElementById("input3").value.replace(/</g, "<").replace(/>/g, ">");
+        var input4Value = document.getElementById("input4").value.replace(/</g, "<").replace(/>/g, ">");
+        var input5Value = document.getElementById("input5").value.replace(/</g, "<").replace(/>/g, ">");
+        var input6Value = document.getElementById("input6").value.replace(/</g, "<").replace(/>/g, ">");
+        var input7Value = document.getElementById("input7").value.replace(/</g, "<").replace(/>/g, ">");
+        var input8Value = document.getElementById("input8").value.replace(/</g, "<").replace(/>/g, ">");
+        var input9Value = document.getElementById("input9").value.replace(/</g, "<").replace(/>/g, ">");
+        var input10Value = document.getElementById("input10").value.replace(/</g, "<").replace(/>/g, ">");
+        var input11Value = document.getElementById("input11").value.replace(/</g, "<").replace(/>/g, ">");
+        var input12Value = document.getElementById("input12").value.replace(/</g, "<").replace(/>/g, ">");
+        var input13Value = document.getElementById("input13").value.replace(/</g, "<").replace(/>/g, ">");
+        var input14Value = document.getElementById("input14").value.replace(/</g, "<").replace(/>/g, ">");
+        var input15Value = document.getElementById("input15").value.replace(/</g, "<").replace(/>/g, ">");
+        var input16Value = document.getElementById("input16").value.replace(/</g, "<").replace(/>/g, ">");
+        var input17Value = document.getElementById("input17").value.replace(/</g, "<").replace(/>/g, ">");
+        var input18Value = document.getElementById("input18").value.replace(/</g, "<").replace(/>/g, ">");
+        var input19Value = document.getElementById("input19").value;
+        var detailsContent = '<div class="details-content">' + input4Value + input5Value + input6Value  + input7Value + input8Value + input9Value + input10Value + input11Value + input12Value  + input13Value + input14Value  + input15Value+input16Value + '<a href="' + input17Value + '">' + input17Value + '</a>' + input18Value + '</div>';
+        lmnDetails.innerHTML = detailsContent;
+        lmnDetails.style.display = "block";
+      } else {
+        lmnDetails.style.display = "none";
+      }
+    }
+    // Hide the details
+    function hideDetails() {
+      var lmnDetails = document.getElementById("lmnDetails");
+      lmnDetails.style.display = "none";
+      lmnDetailsVisible = false;
+    }
+    // Function to format the date as"dd Month Name, yyyy-hrhr:minmin"into input field 9
+    function formatDate(date) {
+      const months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+      const day = date.getDate();
+      const monthName = months[date.getMonth()];
+      const year = date.getFullYear();
+      const hours = date.getHours().toString().padStart(2, '0'); // Add leading zero if necessary
+      const minutes = date.getMinutes().toString().padStart(2, '0'); // Add leading zero if necessary
+      return `, Accessed on:${day} ${monthName}, ${year}-${hours}:${minutes}`;
+    }
+    // Function to handle the Ctrl + D + T key combination
+    function handleCtrlDT(event) {
+      if (event.ctrlKey && event.key === "d") {
+        // Prevent the default behavior of the key combination
+        event.preventDefault();
+        // Generate the current date and time in the desired format
+        const currentDate = new Date();
+        const formattedDate = formatDate(currentDate);
+        // Insert the formatted date into input 9
+        document.getElementById("input18").value = formattedDate;
+      }
+    }
+    // Add a.event listener to the document for keydown events
+    document.addEventListener("keydown", handleCtrlDT);
+    // Toggle the visibility of ABC content
+    var mainTextVisible = false; // Declare the variable
+    function toggleABC() {
+      var output = document.getElementById("output");
+      var showButton = document.getElementById("showButton");
+      mainTextVisible = !mainTextVisible;
+      if (mainTextVisible) {
+        var input1Value = document.getElementById("input1").value.replace(/</g, "<").replace(/>/g, ">");
+        var input2Value = document.getElementById("input2").value.replace(/</g, "<").replace(/>/g, ">");
+        var input3Value = document.getElementById("input3").value.replace(/</g, "<").replace(/>/g, ">");
+        var input4Value = document.getElementById("input4").value.replace(/</g, "<").replace(/>/g, ">");
+        var input5Value = document.getElementById("input5").value.replace(/</g, "<").replace(/>/g, ">");
+        var input6Value = document.getElementById("input6").value.replace(/</g, "<").replace(/>/g, ">");
+        var input7Value = document.getElementById("input7").value.replace(/</g, "<").replace(/>/g, ">");
+        var input8Value = document.getElementById("input8").value.replace(/</g, "<").replace(/>/g, ">");
+        var input9Value = document.getElementById("input9").value.replace(/</g, "<").replace(/>/g, ">");
+        var input10Value = document.getElementById("input10").value.replace(/</g, "<").replace(/>/g, ">");
+        var input11Value = document.getElementById("input11").value.replace(/</g, "<").replace(/>/g, ">");
+        var input12Value = document.getElementById("input12").value.replace(/</g, "<").replace(/>/g, ">");
+        var input13Value = document.getElementById("input13").value.replace(/</g, "<").replace(/>/g, ">");
+        var input14Value = document.getElementById("input14").value.replace(/</g, "<").replace(/>/g, ">");
+        var input15Value = document.getElementById("input15").value.replace(/</g, "<").replace(/>/g, ">");
+        var input16Value = document.getElementById("input16").value.replace(/</g, "<").replace(/>/g, ">");
+        var input17Value = document.getElementById("input17").value.replace(/</g, "<").replace(/>/g, ">");
+        var input18Value = document.getElementById("input18").value.replace(/</g, "<").replace(/>/g, ">");
+        var input19Value = document.getElementById("input19").value;
+        output.textContent = '{input1: "' + input1Value + '", input2: "' + input2Value + '", input3: "' + input3Value + '", input4: "' + input4Value + '", input5: "' + input5Value + '", input6: "' + input6Value  + '", input7: "' + input7Value + '", input8: "' + input8Value + '", input9: "' + input9Value  + '", input10: "' + input10Value + '", input11: "' + input11Value + '", input12: "' + input12Value+'", input13: "' + input13Value+'", input14: "' + input14Value+'", input15: "' + input15Value+ '", input16: "' + input16Value + '", input17: "' + input17Value + '", input18: "' + input18Value + '", input19: "' + input19Value + '"}' + ",";
+        showButton.innerHTML = "Hide ABC";
+        showButton.classList.add("active"); // Add "active" class
+        output.style.display = "block";
+        showButton.textContent = "Hide ABC";
+      } else {
+        output.style.display = "none";
+        showButton.textContent = "Show ABC";
+        showButton.innerHTML = "Show ABC";
+        showButton.classList.remove("active"); // Remove "active" class}
+      }
+    }
+    //Using enter key etc. to enter #x003C;br> etc. in input field
+    function addLineBreak(event) {
+      if (event.key === "Enter" && event.ctrlKey) {
+        event.preventDefault();
+        var input = event.target;
+        var cursorPosition = input.selectionStart;
+        var currentValue = input.value;
+        var newValue =
+          currentValue.substring(0, cursorPosition) +
+          "<br>" +
+          currentValue.substring(cursorPosition);
+        input.value = newValue;
+        input.setSelectionRange(cursorPosition + 4, cursorPosition + 4);
+      }
+      if (event.key === "b" && event.ctrlKey) {
+        event.preventDefault();
+        var input = event.target;
+        var cursorPosition = input.selectionStart;
+        var currentValue = input.value;
+        var newValue =
+          currentValue.substring(0, cursorPosition) +
+          "<b>" +
+          "</b>" +
+          currentValue.substring(cursorPosition);
+        input.value = newValue;
+        input.setSelectionRange(cursorPosition + 3, cursorPosition + 3);
+      }
+      if (event.key === "u" && event.ctrlKey) {
+        event.preventDefault();
+        var input = event.target;
+        var cursorPosition = input.selectionStart;
+        var currentValue = input.value;
+        var newValue =
+          currentValue.substring(0, cursorPosition) +
+          "<u>" +
+          "</u>" +
+          currentValue.substring(cursorPosition);
+        input.value = newValue;
+        input.setSelectionRange(cursorPosition + 3, cursorPosition + 3);
+      }
+      if (event.key === "s" && event.altKey) {
+        event.preventDefault();
+        var input = event.target;
+        var cursorPosition = input.selectionStart;
+        var currentValue = input.value;
+        var newValue =
+          currentValue.substring(0, cursorPosition) +
+          "<span id=''>" +
+          "</span>" +
+          currentValue.substring(cursorPosition);
+        input.value = newValue;
+        input.setSelectionRange(cursorPosition + 3, cursorPosition + 3);
+      }
+      if (event.key === "d" && event.altKey) {
+        event.preventDefault();
+        var input = event.target;
+        var cursorPosition = input.selectionStart;
+        var currentValue = input.value;
+        var newValue =
+          currentValue.substring(0, cursorPosition) +
+          "<div class=''>" +
+          "</div>" +
+          currentValue.substring(cursorPosition);
+        input.value = newValue;
+        input.setSelectionRange(cursorPosition + 3, cursorPosition + 3);
+      }
+    }
+    var inputFields = document.querySelectorAll("input, textarea");
+    inputFields.forEach(function (input) {
+      input.addEventListener("keydown", addLineBreak);
+    });
+  </script>
+  <!-- this script is for saving and loading the page from the very position -->
+  <script>
+    function savePageState() {
+      // Check if local storage is available
+      if (typeof Storage !== "undefined") {
+        // Create an object to store the page state
+        var pageState = {
+          inputValues: {},
+          mainTextVisible: mainTextVisible,
+          lmnContentVisible: lmnContentVisible,
+          lmnDetailsVisible: lmnDetailsVisible,
+          outputContent: document.getElementById("output").textContent,
+          showAllJKLButtonActive: showAllJKLButton.classList.contains("active"),
+          jklContainerContent: jklContainer.innerHTML,
+          showLMNButtonActive: showLMNButton.classList.contains("active"),
+          lmnOutputContent: document.getElementById("lmnOutput").innerHTML,
+          lmnDetailsContent: document.getElementById("lmnDetails").innerHTML,
+        };
+        // Store the input field values
+        var inputFields = document.querySelectorAll("input, textarea");
+        inputFields.forEach(function (input) {
+          pageState.inputValues[input.id] = input.value;
+        });
+        // Convert the object to JSON and store it in local storage
+        localStorage.setItem("pageState", JSON.stringify(pageState));
+        alert("Page state saved successfully!");
+      } else {
+        alert(
+          "Local storage is not available. Your browser may be in private mode or have local storage disabled. " +
+          "This feature requires local storage to work properly."
+        );
+      }
+    }
+    function loadPageState() {
+      // Check if local storage is available
+      if (typeof Storage !== "undefined") {
+        // Retrieve the saved page state from local storage
+        var savedState = localStorage.getItem("pageState");
+        if (savedState) {
+          // Parse the JSON and restore the state
+          var pageState = JSON.parse(savedState);
+          // Restore input field values
+          for (var inputId in pageState.inputValues) {
+            var inputValue = pageState.inputValues[inputId];
+            document.getElementById(inputId).value = inputValue;
+          }
+          // Restore visibility states
+          mainTextVisible = pageState.mainTextVisible;
+          lmnContentVisible = pageState.lmnContentVisible;
+          lmnDetailsVisible = pageState.lmnDetailsVisible;
+          // Toggle visibility based on restored states
+          if (mainTextVisible) {
+            toggleABC();
+          }
+          if (lmnContentVisible) {
+            toggleLMN();
+          }
+          if (lmnDetailsVisible) {
+            toggleDetails();
+          }
+          // Restore output content and button states
+          document.getElementById("output").textContent = pageState.outputContent;
+          if (pageState.showAllJKLButtonActive) {
+            toggleAllJKL();
+          }
+          jklContainer.innerHTML = pageState.jklContainerContent;
+          if (pageState.showLMNButtonActive) {
+            toggleLMN();
+          }
+          document.getElementById("lmnOutput").innerHTML = pageState.lmnOutputContent;
+          document.getElementById("lmnDetails").innerHTML = pageState.lmnDetailsContent;
+          alert("Page state loaded successfully!");
+        } else {
+          alert("No saved state found.");
+        }
+      } else {
+        alert(
+          "Local storage is not available. Your browser may be in private mode or have local storage disabled. " +
+          "This feature requires local storage to work properly."
+        );
+      }
+    }
+  </script>
+  <!-- script for preventing scroll to top on click of hyperlink -->
+  <script>
+    function toggleJKLDetails(event, index) {
+      event.preventDefault(); // Prevent the default anchor behavior
+      var detailsDiv = document.getElementById('jklDetails_' + index);
+      // Toggle the display of the clicked detail
+      if (detailsDiv.style.display === 'block') {
+        detailsDiv.style.display = 'none'; // Close the clicked detail
+      } else {
+        // Close all open details, (एउटा लिङ्क खोल्दा अर्को लिङ्कको content बन्द नगर्ने भए यो ३ लाइन हटाइदिनुहोस्)
+        var allDetails = document.querySelectorAll('.jkl-details');
+        allDetails.forEach(function (detail) {
+          detail.style.display = 'none';
+        });
+        // Open the clicked detail
+        detailsDiv.style.display = 'block';
+      }
+    }
+  </script>
+  <!--[
+  <textarea id="filterInput" placeholder="Enter filter command here"></textarea>
+  <button id="filterButton">Hide Filtered Content</button>
+  <div id="filteredContainer"></div>]-->
+  <script>
+    // Function to display a message in a pop-up window
+    function displayMessage(message) {
+      alert(message); // You can replace 'alert' with a more customized pop-up dialog.
+    }
+    // Function to hide the filtered content
+    function hideFilteredContent() {
+      var filteredContainer = document.getElementById('filteredContainer');
+      filteredContainer.style.display = 'none';
+    }
+    // Function to show the filtered content
+    function showFilteredContent() {
+      var filteredContainer = document.getElementById('filteredContainer');
+      filteredContainer.style.display = 'block';
+    }
+    // Function to clear the filtered content
+    function clearFilteredContent() {
+      var filteredContainer = document.getElementById('filteredContainer');
+      filteredContainer.innerHTML = ''; // Clear the content
+    }
+    // Function to apply the filter
+    function applyFilter(filter) {
+      // Clear the filtered container
+      clearFilteredContent();
+      // Iterate through the data array and apply the filter
+      valuesArray.forEach(function (item, index) {
+        var input19 = item.input19;
+        var filtered = false;
+        // Split the filter into terms using spaces
+        var filterTerms = filter.split(' ');
+        // Variables to track the current logical operator and result
+        var currentOperator = 'AND'; // Default to AND
+        var currentResult = true;
+        // Process each term in the filter
+        filterTerms.forEach(function (term) {
+          if (term.toUpperCase() === 'AND') {
+            currentOperator = 'AND';
+          } else if (term.toUpperCase() === 'OR') {
+            currentOperator = 'OR';
+          } else if (term.toUpperCase() === 'NOT') {
+            currentOperator = 'NOT';
+          } else {
+            if (currentOperator === 'AND') {
+              currentResult = currentResult && input19.includes(term);
+            } else if (currentOperator === 'OR') {
+              currentResult = currentResult || input19.includes(term);
+            } else if (currentOperator === 'NOT') {
+              currentResult = currentResult && !input19.includes(term);
+            }
+          }
+        });
+        // After processing all terms, the currentResult contains the final result
+        filtered = currentResult;
+        // If filtered, display the item in the filtered container
+        if (filtered) {
+          var filteredContainer = document.getElementById('filteredContainer');
+          var itemDiv = document.createElement('div');
+          itemDiv.textContent = 'Item ' + (index + 1) + ': ' + JSON.stringify(item);
+          filteredContainer.appendChild(itemDiv);
+        }
+      });
+      // If no matches are found, display a message in a pop-up window
+      var filteredContainer = document.getElementById('filteredContainer');
+      if (filteredContainer.childElementCount === 0) {
+        displayMessage("No matches found.");
+      } else {
+        showFilteredContent();
+      }
+    }
+    // Event listener for the filter button
+    var filterButton = document.getElementById('filterButton');
+    filterButton.addEventListener('click', function () {
+      var filterInput = document.getElementById('filterInput').value;
+      var buttonText = filterButton.textContent;
+      if (buttonText === 'Hide Filtered Content') {
+        // Hide all filtered content and toggle button text
+        hideFilteredContent();
+        filterButton.textContent = 'Show Filtered Content';
+      } else {
+        // Apply the filter and toggle button text
+        applyFilter(filterInput);
+        filterButton.textContent = 'Hide Filtered Content';
+      }
+    });
+  </script>
+  
+   <a id="BOTTOM"></a>
+  <footer>
+   
+ 
+    
+   
+    <!--[
+    <div id="abbr">
+      <p>
+        <br>cb1=constitutional bench (संवैधानिक इजलास)
+        <br>coni0=certiorari order not issued 
+        <br>coi1=certiorari order issued 
+        <br>db1=double bench (संयुक्त इजलास)
+        <br>efb5=extended full bench of five judges 
+        <br>fb1=full bench(पूर्ण इजलास)
+        <br>ioi1=interim order issued (अन्तरिम आदेश जारी)
+        <br>ioni0=interim order not issued (अन्तरिम आदेश जारी नहुने)
+        <br>moni0=mandatory order not issued
+        <br>moi1=mandatory order issued (उत्प्रेषण)
+        <br>pg1=preference given (अग्राधिकार)
+        <br>sb1=single bench (एकल इजलास)
+        <br>sc1=supreme court(सर्वोच्च अदालत)
+        <br>sco0=show caused ordered not issued  (कारण देखाउन आदेश जारी नहुने)
+        <br>sco1=show cause order issued (कारण देखाउ आदेश जारी)
+        <br>wi1=writ issued (रिट जारी)
+        <br>wip1=writ issued partially (रिट जारी आंशिक)
+        <br>wq1=writ quashed (रिट खारेज)
+        <br>kp1=koshi province
+        <br>pa1=province assembly
+        <br>cm1=constitutional morality
+        <br>voc1=vote of confidence
+        <br>ipk1=ishwor prasad khatiwoda
+        <br>cm2=chief minister
+        <br>pc1=parliamentary culture
+    </p>
+    </div>]-->
+
+    <p>
+      <a href="javascript:void(0);" onclick="toggleSVG()"> Click Here for Transformative Knowledge</a>
+      <span class="blinking-hand">👆</span> <!-- Move the hand below the link -->
+    </p>
+
+    <div id="svg-container" style="display: none;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="400" height="200">
+        <!-- Background sky with stars and color animation -->
+        <rect x="0" y="0" width="400" height="200" fill="deepskyblue">
+          <animate attributeName="fill" values="deepskyblue;darkblue;midnightblue;black;midnightblue;darkblue;deepskyblue" dur="20s" repeatCount="indefinite" />
+        </rect>
+        <circle cx="70" cy="70" r="30" fill="yellow" />
+
+        <!-- Crescent Shape -->
+        <circle cx="58" cy="70" r="30" fill="deepskyblue">
+          <animate attributeName="fill" from="30" to="32" values="deepskyblue;darkblue;midnightblue;black;midnightblue;darkblue;deepskyblue" dur="20s" repeatCount="indefinite" />
+        </circle>
+        <!-- Text -->
+        <text id="blinkingText" x="120" y="100" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0">
+          Coming Soon:
+          <tspan x="140" dy="30" font-size="18">ज्ञानामृत</tspan>
+          <tspan x="100" dy="15" font-size="12" opacity="1">The Nectar of Knowledge</tspan>
+          <tspan x="120" dy="20" font-size="12" opacity="1">for BPSG 7th Sem</tspan>
+        </text>
+             
+     
+            <!-- Fireworks (crackers) -->
+        <circle cx="100" cy="80" r="1" fill="yellow">
+          <animate attributeName="r" from="1" to="3" dur="1s" begin="2s" repeatCount="indefinite" />
+          <animate attributeName="cy" from="80" to="40" dur="1s" begin="2s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="110" cy="85" r="1" fill="red">
+          <animate attributeName="r" from="1" to="3" dur="1s" begin="2.5s" repeatCount="indefinite" />
+          <animate attributeName="cy" from="85" to="45" dur="1s" begin="2.5s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="120" cy="80" r="1" fill="blue">
+          <animate attributeName="r" from="1" to="3" dur="1s" begin="3s" repeatCount="indefinite" />
+          <animate attributeName="cy" from="80" to="40" dur="1s" begin="3s" repeatCount="indefinite" />
+        </circle>
+        <!-- Additional Fireworks -->
+        <circle cx="150" cy="90" r="1" fill="yellow">
+          <animate attributeName="r" from="1" to="3" dur="1s" begin="3.5s" repeatCount="indefinite" />
+          <animate attributeName="cy" from="90" to="30" dur="1s" begin="3.5s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="160" cy="95" r="1" fill="red">
+          <animate attributeName="r" from="1" to="3" dur="1s" begin="4s" repeatCount="indefinite" />
+          <animate attributeName="cy" from="95" to="35" dur="1s" begin="4s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="170" cy="90" r="1" fill="blue">
+          <animate attributeName="r" from="1" to="3" dur="1s" begin="4.5s" repeatCount="indefinite" />
+          <animate attributeName="cy" from="90" to="30" dur="1s" begin="4.5s" repeatCount="indefinite" />
+        </circle>
+        <!-- Cracker Animation -->
+        <rect x="0" y="120" width="400" height="2" fill="white">
+          <animate attributeName="width" from="400" to="0" dur="4s" begin="2s" fill="freeze" />
+        </rect>
+      </svg>
+    </div>
+    
+    <script>
+      // JavaScript code to toggle SVG visibility
+      function toggleSVG() {
+        const svgContainer = document.getElementById("svg-container");
+        svgContainer.style.display = svgContainer.style.display === "none" ? "block" : "none";
+        if (svgContainer.style.display === "block") {
+          animateText();
+        }
+      }
+    
+      // JavaScript code to make the text blink and change colors
+      const blinkingText = document.getElementById("blinkingText");
+    
+      function animateText() {
+        blinkingText.setAttribute("fill", "red");
+        blinkingText.setAttribute("opacity", "1");
+        setTimeout(() => {
+          blinkingText.setAttribute("fill", "green");
+          setTimeout(() => {
+            blinkingText.setAttribute("fill", "blue");
+            setTimeout(() => {
+              blinkingText.setAttribute("fill", "white");
+              blinkingText.setAttribute("opacity", "0");
+              setTimeout(animateText, 1000); // Repeat after 1 second
+            }, 1000);//pause for 0.5 sec
+          }, 1000);
+        }, 1000);
+      }
+    </script>
+        <p id="developedby"><u><b>Developed By:</b></u><br>Shiva Prasad Acharya (M.Sc, LL.M)<br>
+         Shiva.Acharya@supremecourt.gov.np<br>ऋषितर्पणि, २०८०
+        </p>
+  </footer>
+</body>
+</html>
